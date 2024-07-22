@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "c8ea",
+      "fname": "Amith",
+      "lname": "Suresh",
+      "email": "amithsuresh1812@gmail.com",
+      "password": "aQ@123456",
+      "cpassword": "aQ@123456"
+    },
+    {
+      "id": "8f67",
+      "fname": "Amith",
+      "lname": "Suresh",
+      "email": "hashr@hhh.com",
+      "password": "12345678",
+      "cpassword": "12345678"
+    },
+    {
+      "id": "9363",
+      "fname": "Shibly",
+      "lname": "i dont know",
+      "email": "shibly@gmail.com",
+      "password": "12345123",
+      "cpassword": "12345123"
+    },
+    {
+      "id": "65a6",
+      "fname": "Sulaim",
+      "lname": "Mohd",
+      "email": "sulaimmohd@gmail.com",
+      "password": "123456789",
+      "cpassword": "123456789"
+    },
+    {
+      "id": "ac6b",
+      "fname": "Amith",
+      "lname": "i dont know",
+      "email": "amithsuresh1812@gmail.com",
+      "password": "123456789",
+      "cpassword": "123456789"
+    },
+    {
+      "id": "90f0",
+      "fname": "Amith",
+      "lname": "not Amth",
+      "email": "amithsuresh@gmail.com",
+      "password": "12345123",
+      "cpassword": "12345123"
+    },
+    {
+      "id": "c263",
+      "fname": "Amith",
+      "lname": "not Amth",
+      "email": "Amithsuresh@gmail.com",
+      "password": "12345999",
+      "cpassword": "12345999"
+    }
+  ]
+}

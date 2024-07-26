@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Home.css'
-import { PRODUCTS } from '../../Products'
 import Product from './Product'
+import { StoreContext } from '../../Context/StoreContext'
 
+ 
 export default function Home() {
+
+	const {filteredProducts}=useContext(StoreContext)
+	
   return (
-    <div className='home   p-4 sm:p-6 lg:p-8'>
+	<>
+    <div className='home p-4 sm:p-6 lg:p-8'>
       <div className='home-title text-center py-4 px-4 sm:px-4'>
-        <h1 className='font-bold sm:text-black text-red-700 '>'Well Barefoot is kinda Overrated'</h1>
+	  <h1 className='font-bold sm:text-black text-red-700'>Well Barefoot is kinda Overrated</h1>
       </div>
       <div className='products mt-4 grid gap-9 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4'>
-        {PRODUCTS.map((product)=>(<Product key={product.id} data={product}/>))}
+        {filteredProducts.map((product)=>(<Product key={product.id} data={product}/>))}
 		
         </div>
    
@@ -38,6 +43,6 @@ export default function Home() {
 
 </div>
 </div>
-  
+</>
   )
 };

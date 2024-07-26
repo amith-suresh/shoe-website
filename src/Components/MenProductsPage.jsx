@@ -1,11 +1,10 @@
 import React, {useContext}from 'react'
-import { PRODUCTS } from '../Products';
 import { StoreContext } from '../Context/StoreContext';
 import GoBackButton from './GoBackButton';
 
 export default function MenProductsPage() {
-  const menProducts = PRODUCTS.filter((product) => product.category === "men");
-  const { addToCart } = useContext(StoreContext);
+  const { addToCart ,products} = useContext(StoreContext);
+  const menProducts = products.filter((product) => product.category === "men");
 
   return (
     <div className="Products-title">

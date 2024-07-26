@@ -1,19 +1,18 @@
 import React, {useContext} from 'react'
-import { PRODUCTS } from '../Products'
 import { StoreContext } from '../Context/StoreContext';
 import GoBackButton from './GoBackButton';
 
 export default function WomenProductPage() {
-  const { addToCart } = useContext(StoreContext);
-  const womenProducts = PRODUCTS.filter(
+  const { addToCart ,products} = useContext(StoreContext);
+  const womenProducts = products.filter(
     (product) => product.category === "women"
   )
  
   return (
     <div>
-      <h className="font-bold sm:text-black text-center py-4 px-4 sm:px-4">
+      <h1 className="font-bold sm:text-black text-center py-6 px-4 sm:px-4 h-5">
         Women's Products
-      </h>
+      </h1>
       <div className="products-list mt-4 grid gap-7 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
         {womenProducts.map((product) => (
           <div key={product.id} className="product">

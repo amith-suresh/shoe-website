@@ -54,7 +54,7 @@ export default function Registration() {
 
 
     if (isValid) {
-      axios.get(`http://localhost:3001/users?email=${formData.email}`)
+      axios.get(`http://localhost:3000/users?email=${formData.email}`)
         .then(response => {
           if (response.data.length > 0) {
             setEmailExists(true);
@@ -63,7 +63,7 @@ export default function Registration() {
               email: "Email already exists",
             }));
           } else {
-            axios.post('http://localhost:3001/users', formData)
+            axios.post('http://localhost:3000/users', formData)
               .then(result => {
                 alert("Registered Successfully");
                 navigate('/login');

@@ -55,6 +55,14 @@
       "email": "Amithsuresh@gmail.com",
       "password": "12345999",
       "cpassword": "12345999"
+    },
+    {
+      "id": "699b",
+      "fname": "Erfan",
+      "lname": "pv",
+      "email": "erfan@gmail.com",
+      "password": "Erfan@123",
+      "cpassword": "Erfan@123"
     }
   ],
   "products": [

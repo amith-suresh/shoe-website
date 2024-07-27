@@ -44,29 +44,28 @@ const Login = () => {
       return;
     }
 
-    if(formData.email==="Amithsuresh@gmail.com" && formData.password==="12345999"){
-      navigate("/admin")   
-   }
+  
     axios
       .get("http://localhost:3000/users")
       .then((result) => {
         const user = result.data.find((user) => user.email === formData.email);
         if (user) {
-          if (user.password === formData.password) {
+          if(formData.email==="Amithsuresh@gmail.com" && formData.password==="12345999"){
+            navigate("/admin");
+            alert('welcome to admin page'); 
+         }
+          else if (user.password === formData.password) {
             alert("Login successful");
             setValid(true);
             navigate("/");
             localStorage.setItem('id',user.id)
             // console.log(user);
             login();
-          } else {
+          } else  {
             setValid(false);
-            validationErrors.password = "Wrong password";
+            alert("Invalid credentials")
           }
-        } else {
-          setValid(false);
-          validationErrors.email = "Email not found";
-        }
+        } 
         setErrors(validationErrors);
       })
       .catch((err) => console.error(err));

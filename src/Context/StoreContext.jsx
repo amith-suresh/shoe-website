@@ -9,7 +9,7 @@ const StoreContextProvider = (props) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const id = localStorage.getItem("id");
-  console.log(id);
+
 
   useEffect(() => {
     axios.get("http://localhost:3000/products").then((res) => {

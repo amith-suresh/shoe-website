@@ -65,6 +65,7 @@ const StoreContextProvider = (props) => {
       alert("Item added to cart");
     } else {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+      alert("Item added to cart");
     }
   };
 
@@ -78,6 +79,7 @@ const StoreContextProvider = (props) => {
     }
   };
 
+
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     products.forEach((item) => {
@@ -90,14 +92,14 @@ const StoreContextProvider = (props) => {
 
   const getTotalCartAmount = () => {
     let totalAmount = 0;
-
     for (const itemId in cartItems) {
       if (cartItems[itemId] > 0) {
         let itemInfo = products.find(
-          (product) => product.id === Number(itemId)
+          (product) => Number(product.id) === Number(itemId)
         );
-        if (itemInfo && typeof itemInfo.price === "number") {
-          totalAmount += itemInfo.price * Number(cartItems[itemId]);
+        console.log(itemInfo)
+        if (itemInfo) {
+          totalAmount += Number(itemInfo.price) * Number(cartItems[itemId]);
         } else {
           console.warn(
             `Product with id ${itemId} not found or has invalid price`
@@ -105,6 +107,7 @@ const StoreContextProvider = (props) => {
         }
       }
     }
+     console.log(totalAmount)
 
     return totalAmount;
   };

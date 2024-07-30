@@ -54,6 +54,7 @@ const Cart = () => {
 
         <div className="flex justify-end mt-4">
           <p className="font-bold">Total: ${calculateTotalPrice()}</p>
+          
         </div>
       </div>
 
@@ -63,6 +64,7 @@ const Cart = () => {
           <div className="cart-total-details flex justify-between">
             <p>Subtotal</p>
             <p>{getTotalCartAmount()}</p>
+            
           </div>
           <hr className='mt-3 bg-black' />
           <div className='cart-total-details flex justify-between'>

@@ -63,16 +63,17 @@
       "email": "erfan@gmail.com",
       "password": "Erfan@123",
       "cpassword": "Erfan@123"
+    },
+    {
+      "id": "eef2",
+      "fname": "sulaim",
+      "lname": "pl",
+      "email": "sulaim@gmail.com",
+      "password": "12345543",
+      "cpassword": "12345543"
     }
   ],
   "products": [
-    {
-      "id": "1",
-      "price": 2000,
-      "productImage": "https://m.media-amazon.com/images/I/716kSfEScGS._SY695_.jpg",
-      "productdescription": "CasualCanvasSneakers",
-      "category": "men"
-    },
     {
       "id": "2",
       "price": 3000,
@@ -121,6 +122,16 @@
       "productImage": "https://m.media-amazon.com/images/I/71KrFpB0JXL._SY695_.jpg",
       "productdescription": "NeonBoots",
       "category": "women"
+    },
+    {
+      "id": "9",
+      "price": "50001",
+      "productImage": "https://m.media-amazon.com/images/I/51Thyo6Q2gL._SY695_.jpg",
+      "productdescription": "hashir",
+      "category": "men"
     }
+  ],
+  "cart": [
+    {}
   ]
 }

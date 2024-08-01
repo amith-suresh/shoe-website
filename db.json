@@ -1,20 +1,18 @@
 {
   "users": [
     {
-      "id": "c8ea",
-      "fname": "Amith",
-      "lname": "Suresh",
-      "email": "amithsuresh1812@gmail.com",
-      "password": "aQ@123456",
-      "cpassword": "aQ@123456"
-    },
-    {
       "id": "8f67",
       "fname": "Amith",
       "lname": "Suresh",
       "email": "hashr@hhh.com",
       "password": "12345678",
-      "cpassword": "12345678"
+      "cpassword": "12345678",
+      "cart": [
+        {
+          "4": 7
+        }
+      ],
+      "order": []
     },
     {
       "id": "9363",
@@ -22,7 +20,14 @@
       "lname": "i dont know",
       "email": "shibly@gmail.com",
       "password": "12345123",
-      "cpassword": "12345123"
+      "cpassword": "12345123",
+      "cart": [
+        {
+          "2": 1,
+          "4": 1
+        }
+      ],
+      "order": []
     },
     {
       "id": "65a6",
@@ -30,23 +35,9 @@
       "lname": "Mohd",
       "email": "sulaimmohd@gmail.com",
       "password": "123456789",
-      "cpassword": "123456789"
-    },
-    {
-      "id": "ac6b",
-      "fname": "Amith",
-      "lname": "i dont know",
-      "email": "amithsuresh1812@gmail.com",
-      "password": "123456789",
-      "cpassword": "123456789"
-    },
-    {
-      "id": "90f0",
-      "fname": "Amith",
-      "lname": "not Amth",
-      "email": "amithsuresh@gmail.com",
-      "password": "12345123",
-      "cpassword": "12345123"
+      "cpassword": "123456789",
+      "cart": [],
+      "order": []
     },
     {
       "id": "c263",
@@ -54,7 +45,9 @@
       "lname": "not Amth",
       "email": "Amithsuresh@gmail.com",
       "password": "12345999",
-      "cpassword": "12345999"
+      "cpassword": "12345999",
+      "cart": [],
+      "order": []
     },
     {
       "id": "699b",
@@ -62,15 +55,9 @@
       "lname": "pv",
       "email": "erfan@gmail.com",
       "password": "Erfan@123",
-      "cpassword": "Erfan@123"
-    },
-    {
-      "id": "eef2",
-      "fname": "sulaim",
-      "lname": "pl",
-      "email": "sulaim@gmail.com",
-      "password": "12345543",
-      "cpassword": "12345543"
+      "cpassword": "Erfan@123",
+      "cart": [],
+      "order": []
     }
   ],
   "products": [
@@ -79,14 +66,8 @@
       "price": 3000,
       "productImage": "https://m.media-amazon.com/images/I/619pdY6a6JL._SY695_.jpg",
       "productdescription": "RunningShoes",
-      "category": "men"
-    },
-    {
-      "id": "3",
-      "price": 1500,
-      "productImage": "https://m.media-amazon.com/images/I/71QobNwcYxS._SY695_.jpg",
-      "productdescription": "ChunkySneakers",
-      "category": "men"
+      "category": "men",
+      "quantity": 1
     },
     {
       "id": "4",
@@ -100,7 +81,8 @@
       "price": 5000,
       "productImage": "https://m.media-amazon.com/images/I/71NQrTFXdZL._SY695_.jpg",
       "productdescription": "LeatherBoots",
-      "category": "women"
+      "category": "women",
+      "quantity": 1
     },
     {
       "id": "6",
@@ -129,9 +111,20 @@
       "productImage": "https://m.media-amazon.com/images/I/51Thyo6Q2gL._SY695_.jpg",
       "productdescription": "hashir",
       "category": "men"
+    },
+    {
+      "id": "9",
+      "price": "9999",
+      "productImage": "https://m.media-amazon.com/images/I/51Thyo6Q2gL._SY695_.jpg",
+      "productdescription": "New shoe",
+      "category": "men"
+    },
+    {
+      "id": "10",
+      "price": "66",
+      "productImage": "https://m.media-amazon.com/images/I/51Thyo6Q2gL._SY695_.jpg",
+      "productdescription": "New ",
+      "category": "men"
     }
-  ],
-  "cart": [
-    {}
   ]
 }

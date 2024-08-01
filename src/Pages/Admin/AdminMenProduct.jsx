@@ -1,27 +1,39 @@
-import React,{useContext} from 'react'
-import { StoreContext } from '../../Context/StoreContext'
+import React, { useContext } from 'react';
+import { StoreContext } from '../../Context/StoreContext';
 import GoBackButton from '../../Components/GoBackButton';
 
 function AdminMenProduct() {
-    const{products}=useContext(StoreContext);
-    const menProducts = products.filter((product) => product.category === "men");
+  const { products } = useContext(StoreContext);
+  const menProducts = products.filter((product) => product.category === 'men');
+
   return (
-    <div>
-      <h1 className="font-bold sm:text-black text-center py-4 px-4 sm:px-4 h-5">
+    <div className="p-4">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4">
         Men's Products
       </h1>
-      <div className='mt-4 grid gap-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2'>
-       {menProducts.map((product)=>(
-        <div key={product.id} className='product'>
-            <img src={product.productImage}></img>
-            <p><b>{product.productdescription}</b></p>
-            <p>${product.price}</p>
-        </div>
-       ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+        {menProducts.map((product) => (
+          <div
+            key={product.id}
+            className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex flex-col items-center"
+          >
+            <img
+              src={product.productImage}
+              alt={product.productdescription}
+              className="w-full h-40 object-cover mb-4 rounded"
+            />
+            <p className="text-lg font-semibold mb-2 text-center">
+              {product.productdescription}
+            </p>
+            <p className="text-xl font-bold text-gray-800">${product.price}</p>
+          </div>
+        ))}
       </div>
-      <GoBackButton/>
+      <div className="mt-4">
+        <GoBackButton />
+      </div>
     </div>
-  )
+  );
 }
 
-export default AdminMenProduct
+export default AdminMenProduct;

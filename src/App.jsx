@@ -14,6 +14,7 @@ import AdminMenProduct from './Pages/Admin/AdminMenProduct'
 import AdminWomenProduct from './Pages/Admin/AdminWomenProduct'
 import AdminAddItem from './Pages/Admin/AdminAddItem'
 import AdminEditItem from './Pages/Admin/AdminEditItem'
+import Users from './Pages/Admin/Users'
 
 
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="AdminWomenProduct" element={<AdminWomenProduct/>}></Route>
         <Route path="AddProducts" element={<AdminAddItem/>}></Route>
         <Route path='editItem/:id' element={<AdminEditItem/>}></Route>
+        <Route path="users" element={<Users/>}></Route>
       </Routes>
     </>
   );

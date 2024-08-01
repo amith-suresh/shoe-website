@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
@@ -16,6 +17,7 @@ const StoreContextProvider = (props) => {
       setFilteredProducts(res.data);
       setProducts(res.data);
     });
+    axios.get(`http://localhost:3000/users/${id}`).then(res=> setCartItems(res.data.cart[0]) )
   }, []);
 
   useEffect(() => {
@@ -61,23 +63,42 @@ const StoreContextProvider = (props) => {
       return;
     }
     if (!cartItems[itemId]) {
+      axios.patch(`http://localhost:3000/users/${id}`, {cart: [{...cartItems, [itemId]:1}]})
       setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
       alert("Item added to cart");
     } else {
+      axios.patch(`http://localhost:3000/users/${id}`, {cart: [{...cartItems, [itemId]:cartItems[itemId]+1}]})
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
       alert("Item added to cart");
     }
   };
 
-  const removeFromCart = (itemId) => {
+  const decOneInCart = (itemId) => {
+    
     if (cartItems[itemId] === 1) {
+      
       const newCartItems = { ...cartItems };
       delete newCartItems[itemId];
+      console.log(newCartItems, 'this is the new cart items')
+      axios.patch(`http://localhost:3000/users/${id}`, {cart: [newCartItems]}).then(res=> console.log(res))
       setCartItems(newCartItems);
     } else {
+      axios.patch(`http://localhost:3000/users/${id}`, {cart: [{...cartItems, [itemId]:cartItems[itemId]-1}]})
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+     
     }
   };
+  const incOneInCart = (itemId) => {
+      axios.patch(`http://localhost:3000/users/${id}`, {cart: [{...cartItems, [itemId]:cartItems[itemId]+1}]})
+      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+  };
+  const removeFromCart = (itemId)=>{
+      const newCartItems = { ...cartItems };
+      delete newCartItems[itemId];
+      console.log(newCartItems, 'this is the new cart items')
+      axios.patch(`http://localhost:3000/users/${id}`, {cart: [newCartItems]}).then(res=> console.log(res))
+      setCartItems(newCartItems);
+  }
 
 
   const calculateTotalPrice = () => {
@@ -97,7 +118,7 @@ const StoreContextProvider = (props) => {
         let itemInfo = products.find(
           (product) => Number(product.id) === Number(itemId)
         );
-        console.log(itemInfo)
+      
         if (itemInfo) {
           totalAmount += Number(itemInfo.price) * Number(cartItems[itemId]);
         } else {
@@ -127,8 +148,8 @@ const StoreContextProvider = (props) => {
     setIsLoggedIn,
     login,
     logout,
-    incrementQuantity,
-    decrementQuantity,
+    decOneInCart,
+    incOneInCart,
     filteredProducts,
     setFilteredProducts,
     products,

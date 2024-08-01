@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
-import { StoreContext } from "../../Context/StoreContext";
+import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import GoBackButton from "../../Components/GoBackButton";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { getTotalCartAmount } = useContext(StoreContext);
+
+
   const validationSchema = Yup.object({
     firstName: Yup.string().required("First name is required"),
     lastName: Yup.string().required("Last name is required"),
@@ -19,10 +21,7 @@ const Cart = () => {
     phone: Yup.string().required("Phone number is required"),
   });
 
-  // const handleInputChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
-
+ const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -38,15 +37,18 @@ const Cart = () => {
       if (!response.ok) {
         throw new Error("Network response was not ok.");
       }
-
-      alert("Form submitted successfully!");
     } catch (error) {
       console.error("Error:", error);
       alert("Error submitting form. Please try again later.");
     }
   };
-
+  if (response.ok) {
+    alert("Form submitted successfully!");
+    navigate("/");
+  }
+  
   return (
+    
     <Formik
       initialValues={{
         firstName: "",
@@ -65,6 +67,7 @@ const Cart = () => {
       {() => (
         <Form className="place-order bg-gray-100 p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-b-2 pb-4 mb-4">
+          <GoBackButton/>
             <div className="place-order-left">
               <p className="title text-xl font-bold mb-4 border-b-2 pb-2">
                 Delivery Information
@@ -199,7 +202,7 @@ const Cart = () => {
                 <h1 className="font-extrabold text-2xl border-b-2 pb-2">
                   Cart Totals
                 </h1>
-                {/* Cart totals will be added here */}
+               
               </div>
 
               <div className="flex flex-col justify-end mt-4">

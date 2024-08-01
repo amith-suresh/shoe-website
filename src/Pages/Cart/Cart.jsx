@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import GoBackButton from '../../Components/GoBackButton';
 
 const Cart = () => {
-  const { cartItems,removeFromCart, getTotalCartAmount, calculateTotalPrice, incrementQuantity, decrementQuantity,products } = useContext(StoreContext);
+  const {
+    cartItems,
+    removeFromCart,
+    getTotalCartAmount,
+    calculateTotalPrice,
+    decOneInCart,
+    incOneInCart,
+    products
+  } = useContext(StoreContext);
+
   const navigate = useNavigate();
-
-  const handleIncrement = (itemId) => {
-    incrementQuantity(itemId);
-  };
-
-  const handleDecrement = (itemId) => {
-    decrementQuantity(itemId);
-  };
 
   return (
     <div className='cart'>
@@ -40,9 +41,9 @@ const Cart = () => {
                 <p className='col-span-1'>${item.price * cartItems[item.id]}</p>
                 <p className='cursor-pointer col-span-1' onClick={() => removeFromCart(item.id)}>X</p>
                 <div className="col-span-1 flex items-center pl-7">
-                  <button className="border px-2  bg-blue-950 text-white" onClick={() => handleDecrement(item.id)}>-</button>
+                  <button className="border px-2 bg-blue-950 text-white" onClick={() => decOneInCart(item.id)}>-</button>
                   <span className="mx-2">{cartItems[item.id]}</span>
-                  <button className="border px-2 bg-blue-950 text-white" onClick={() => handleIncrement(item.id)}>+</button>
+                  <button className="border px-2 bg-blue-950 text-white" onClick={() => incOneInCart(item.id)}>+</button>
                 </div>
               </div>
             );
@@ -54,7 +55,6 @@ const Cart = () => {
 
         <div className="flex justify-end mt-4">
           <p className="font-bold">Total: ${calculateTotalPrice()}</p>
-          
         </div>
       </div>
 
@@ -63,13 +63,12 @@ const Cart = () => {
           <h1 className='font-extrabold'>Cart Totals</h1>
           <div className="cart-total-details flex justify-between">
             <p>Subtotal</p>
-            <p>{getTotalCartAmount()}</p>
-            
+            <p>${getTotalCartAmount()}</p>
           </div>
           <hr className='mt-3 bg-black' />
           <div className='cart-total-details flex justify-between'>
             <p>Delivery Fee</p>
-            <p> $5</p>
+            <p>$5</p>
           </div>
           <hr className='mt-3 bg-black' />
           <div className='cart-total-details flex justify-between'>
@@ -84,7 +83,7 @@ const Cart = () => {
           </button>
         </div>
       </div>
-      <GoBackButton/>
+      <GoBackButton />
     </div>
   );
 };
